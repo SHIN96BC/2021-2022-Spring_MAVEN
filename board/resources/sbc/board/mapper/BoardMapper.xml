@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="sbc.board.mapper.BoardMapper">
+	<select id="boardList" parameterType="ListResult" resultType="Board">
+		 SELECT * FROM (SELECT seq, writer, email, subject, content, rdate, ROW_NUMBER() OVER(ORDER BY seq DESC) AS RNUM FROM BOARD) WHERE RNUM BETWEEN #{min} AND #{max} ORDER BY seq DESC
+	</select>
+	<insert id="insert" parameterType="Board">
+		insert into Board values(Board_SEQ.nextval, #{writer}, #{email}, #{subject}, #{content}, SYSDATE)
+	</insert>
+	<delete id="delete" parameterType="long">
+		delete from Board where SEQ=#{seq}
+	</delete>
+	<select id="content" parameterType="long" resultType="Board">
+		select * from Board where SEQ=#{seq}
+	</select>
+	<update id="update" parameterType="Board">
+		update Board set SUBJECT=#{subject}, CONTENT=#{content} where SEQ=#{seq}
+	</update>
+	<select id="boardCount" resultType="long">
+		select SEQ from BOARD
+	</select>
+</mapper>
+
+
+
