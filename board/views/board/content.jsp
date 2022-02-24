@@ -44,6 +44,16 @@
 	<td align='center'>Contents</td>
 	<td>${board.content}</td>
 	</tr>
+	<tr>
+	<td align='center'>FILENAME</td>
+	<td>
+     <a href="download.do?fname=${board.fname}">${board.fname}</a>
+    </td>
+	</tr>
+	<tr>
+	<td align='center'>filesize</td>
+	<td>${board.fsize}</td>
+	</tr>
 	</table>
 	
 	<hr width='600' size='2' color='gray' noshade>

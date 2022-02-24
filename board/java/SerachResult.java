@@ -4,10 +4,10 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+@Data
 @AllArgsConstructor
 @NoArgsConstructor
-@Data
-public class ListResult {
+public class SerachResult {
 	private long ps;
 	private long cp;
 	private long totalpagecount;
@@ -16,4 +16,6 @@ public class ListResult {
 	private long nowminpage;
 	private long max;
 	private long min;
+	private String columname;
+	private String likekey;
 }

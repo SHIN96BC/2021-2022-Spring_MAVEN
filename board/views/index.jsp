@@ -11,8 +11,9 @@
 		</h1>
 			
 		<P>
-			<a href="address/list.do">주소록</a>
-			<a href="board/boardList.do?ps=3&cp=1">게시판</a>
+			<a href="address/list.do">주소록</a><br/><br/>
+			<a href="board/boardList.do">게시판</a><br/><br/>
+			<a href="file/list.do">파일폼</a><br/><br/>
 		</P>
 	</body>
 </html>
