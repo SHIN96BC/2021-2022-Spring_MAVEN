@@ -7,8 +7,11 @@ import org.springframework.stereotype.Repository;
 import sbc.addr.domain.Address;
 
 
-public interface AddressMapper {
+public interface AddressAjaxMapper {
 	List<Address> list();
 	boolean insert(Address address);
 	void delete(long seq);
+	
+	Address selectBySeq(long seq);
+	List<Address> selectByName(String name);
 }

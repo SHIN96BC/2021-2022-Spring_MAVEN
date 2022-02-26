@@ -17,11 +17,10 @@
 		</style>
 		<title>Insert title here</title>
 	</head>
-	<body>
-		
+	<body style="text-align:center">
 		<center>
 			<h1>
-				Address List MVC
+				Address List with Spring5
 			</h1>
 			<a href="/">인덱스</a>
 				&nbsp;&nbsp;&nbsp;&nbsp;
@@ -34,31 +33,20 @@
 					<th>날짜</th>
 					<th>삭제</th>
 				</tr>
-		<%	
-			ArrayList<Address> addressList = (ArrayList<Address>)request.getAttribute("addressList");
-			if(addressList != null){
-				if(addressList.size() != 0){
-					for(Address dto: addressList){
-		%>
-						<tr>
-							<td align='center'><%=dto.getSeq()%></td>
-							<td><%=dto.getName()%></td>
-							<td><%=dto.getAddr()%></td>
-							<td><%=dto.getRdate()%></td>
-							<td align='center'><a href='delete.do?seq=<%=dto.getSeq()%>'>삭제</a></td>
-						</tr>
-		<%
-					}
-				}else{
-		%>
-					<tr>
+			 	<c:if test="${empty list}">
+			 		<tr>
 						<td colspan="5" style="text-align:center">데이터가 하나도 없어요</td>
 					</tr>
-		<%
-				}
-			}
-		%>
-				
+				</c:if>
+				<c:forEach items="${list}" var="address">
+					<tr>
+						<td align='center'>${address.seq}</td>
+						<td>${address.name}</td>
+						<td>${address.addr}</td>
+						<td>${address.rdate}</td>
+						<td align='center'><a href='delete.do?seq=${address.seq}'>삭제</a></td>
+					</tr>
+				</c:forEach>
 			</table>
 		</center>
 	</body>

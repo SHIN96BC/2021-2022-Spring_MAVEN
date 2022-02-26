@@ -5,10 +5,16 @@
 <configuration>
    <typeAliases>
       <typeAlias alias="Address" type="sbc.addr.domain.Address"/>
+      <typeAlias alias="Board" type="sbc.board.domain.Board"/>
+      <typeAlias alias="ListResult" type="sbc.board.domain.ListResult"/>
+      <typeAlias alias="searchResult" type="sbc.board.domain.SearchResult"/>
    </typeAliases>
    
+   <!--  
    <mappers>
         <mapper resource="sbc/addr/mapper/AddressMapper.xml"/>
+        <mapper resource="sbc/board/mapper/BoardMapper.xml"/>
    </mappers>
-
+	-->
+	
 </configuration>
